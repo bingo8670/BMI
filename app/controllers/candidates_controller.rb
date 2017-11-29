@@ -40,7 +40,13 @@ class CandidatesController < ApplicationController
     @candidate.destroy if @candidate
     redirect_to candidates_path, notice: "候選人資料已刪除!"
   end
-  
+
+  def vote
+    @candidate = Candidate.find_by(id: params[:id])
+    @candidate.vote_logs.create(ip_address: request.remote_ip) if @candidate
+    redirect_to candidates_path, notice: "完成投票!"
+  end
+
   private
 
   def candidate_params
