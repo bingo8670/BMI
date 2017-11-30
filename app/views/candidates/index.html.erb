@@ -16,20 +16,8 @@
      </tr>
    </thead>
    <tbody>
-     <% @candidates.each do |candidate| %>
-     <tr>
-       <td><%= link_to "投給這位", vote_candidate_path(candidate), method: "post", data: { confirm: "確定投給這個人?" }, class:"btn btn-danger btn-xs" %></td>
-       <td><%= candidate.name %>(年齡：<%= candidate.age %> 岁)</td>
-       <td><%= candidate.party %></td>
-       <td><%= candidate.politics %></td>
-       <td><%= candidate.vote_logs.size %></td>
-       <td>
-          <%= link_to "編輯", edit_candidate_path(candidate) %>
-          <%= link_to "刪除", candidate_path(candidate), method: "delete", data: { confirm: "確認刪除" } %>
-        </td>
-     </tr>
-     <% end %>
+     <%= render partial:"candidate", collection: @candidates %>
    </tbody>
  </table>
 
- <%= render partial: "banner", locals: {content: "我是广告的内容"} %>
+ <%= render "banner", content: "我是广告的内容" %>
