@@ -6,6 +6,10 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<!-- srf_meta_tags 方法會在頁面上產生 <csrf-param> 跟 <csrf-token> 兩個 <meta> 標籤，用途主要是確保網站較不容易受到 CSRF（Cross-site request forgery）攻擊。
+stylesheet_link_tag 方法會轉換成 CSS 的 <link rel="stylesheet"> 標籤。
+javascript_include_tag 方法會轉換成 JavaScript 的 <script> 標籤。
+ -->
   </head>
 
   <body>
