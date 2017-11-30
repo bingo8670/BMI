@@ -1,3 +1,5 @@
+<% provide :my_title, "你好，我是Title" %>
+
 <h1>候選人列表</h1>
 
 <%= link_to "新增候選人", new_candidate_path %>
@@ -29,3 +31,5 @@
      <% end %>
    </tbody>
  </table>
+
+ <%= render partial: "banner", locals: {content: "我是广告的内容"} %>
