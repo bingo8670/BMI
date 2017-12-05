@@ -1,13 +1,12 @@
 require "./bank_account"
 
 RSpec.describe BankAccount do
-  before :each do
-    @account = BankAccount.new(10)
-  end
+  let(:account) { BankAccount.new(10) }
+
     describe "存錢功能" do
       it "原本帳戶有 10 元，存入 5 元之後，帳戶餘額變 15 元" do
-        @account.deposit 5
-        expect(@account.balance).to be 15
+        account.deposit 5
+        expect(account.balance).to be 15
       end
 
       it "原本帳戶有 10 元，存入 -5 元之後，帳戶餘額還是 10 元（不能存入小於等於零的金額）" do
@@ -19,9 +18,9 @@ RSpec.describe BankAccount do
 
     describe "領錢功能" do
       it "原本帳戶有 10 元，領出 5 元之後，帳戶餘額變 5 元" do
-        amount  = @account.withdraw 5
+        amount  = account.withdraw 5
         expect(amount).to be 5
-        expect(@account.balance).to be 5
+        expect(account.balance).to be 5
       end
 
       it "原本帳戶有 10 元，試圖領出 20 元，帳戶餘額還是 10 元，但無法領出（餘額不足）" do
