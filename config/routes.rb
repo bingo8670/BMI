@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get  "bmi",          to: "bmi#index"
+  root "bmi#index"
   post "bmi/result",   to: "bmi#result"
 
   get  "/hello_world", to: "pages#hello"
